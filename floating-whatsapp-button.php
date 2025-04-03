@@ -33,9 +33,10 @@ add_action("wp_head", function() {
 });
 
 add_action("wp_footer", function() {
+	$whatsapp_link = "https://wa.me/" . get_option("fwb_whatsapp_number") . "?text=" . rawurlencode(get_option("fwb_whatsapp_message"));
 	?>
 	<div class="fwb-wrapper">
-		<a class="fwb-button"><i class="fa fa-whatsapp"></i></a>
+		<a class="fwb-button" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<?php
 });
@@ -106,12 +107,12 @@ function fwb_register_settings() {
 add_action("admin_init", "fwb_register_settings");
 
 function fwb_whatsapp_number_field() {
-    $value = get_option("fwb_whatsapp_number", "https://wa.me/1234567890");
-    echo '<input type="text" name="fwb_whatsapp_number" value="' . esc_attr($value) . '" class="regular-text">';
+    $value = get_option("fwb_whatsapp_number");
+    echo '<input type="number" name="fwb_whatsapp_number" value="' . esc_attr($value) . '" class="regular-text">';
 }
 
 function fwb_whatsapp_message_field() {
-    $value = get_option("fwb_whatsapp_number", "https://wa.me/1234567890");
-    echo '<input type="text" name="fwb_whatsapp_number" value="' . esc_attr($value) . '" class="regular-text">';
+    $value = get_option("fwb_whatsapp_message");
+    echo '<input type="text" name="fwb_whatsapp_message" value="' . esc_attr($value) . '" class="regular-text">';
 }
 ?>
