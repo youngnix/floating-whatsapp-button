@@ -12,11 +12,11 @@ Version: 1.0.0
 Author URI: 
 */
 
-function floating_whatsapp_button_activate() {
+function fwb_activate() {
 	// pass
 }
 
-register_activation_hook(__FILE__, 'floating_whatsapp_button_activate');
+register_activation_hook(__FILE__, 'fwb_activate');
 
 function load_plugin() {
 
@@ -40,7 +40,7 @@ add_action("wp_footer", function() {
 	<?php
 });
 
-function floating_whatsapp_button_enqueue_styles() {
+function fwb_enqueue_styles() {
     wp_enqueue_style(
         "floating-whatsapp-button-style",
         plugins_url("res/css/style.css", __FILE__),
@@ -48,5 +48,70 @@ function floating_whatsapp_button_enqueue_styles() {
         "1.0.0"
     );
 }
-add_action("wp_enqueue_scripts", "floating_whatsapp_button_enqueue_styles");
+add_action("wp_enqueue_scripts", "fwb_enqueue_styles");
+
+function fwb_add_options_page() {
+	add_options_page(
+		"Floating WhatsApp Button Settings",  // Page title
+    "WhatsApp Button",                   // Menu title
+    "manage_options",                     // Capability
+    "floating-whatsapp-button",           // Menu slug
+    "fwb_settings_page"                    // Function to display settings page
+	);
+}
+add_action("admin_menu", "fwb_add_options_page");
+
+function fwb_options_page() {
+    ?>
+    <div class="wrap">
+        <h1>Floating WhatsApp Button Settings</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields("fwb_options_group");
+            do_settings_sections("floating-whatsapp-button");
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+function fwb_register_settings() {
+    register_setting("fwb_settings_group", "fwb_whatsapp_number");
+    register_setting("fwb_settings_group", "fwb_whatsapp_message");
+
+    add_settings_section(
+        "fwb_settings_section",
+        "WhatsApp Button Settings",
+        null,
+        "floating-whatsapp-button"
+    );
+
+    add_settings_field(
+        "fwb_whatsapp_number",
+        "WhatsApp Number or Link",
+        "fwb_whatsapp_number_field",
+        "floating-whatsapp-button",
+        "fwb_settings_section"
+    );
+
+    add_settings_field(
+        "fwb_whatsapp_message",
+        "The predefined message to be sent",
+        "fwb_whatsapp_message_field",
+        "floating-whatsapp-button",
+        "fwb_settings_section"
+    );
+}
+add_action("admin_init", "fwb_register_settings");
+
+function fwb_whatsapp_number_field() {
+    $value = get_option("fwb_whatsapp_number", "https://wa.me/1234567890");
+    echo '<input type="text" name="fwb_whatsapp_number" value="' . esc_attr($value) . '" class="regular-text">';
+}
+
+function fwb_whatsapp_message_field() {
+    $value = get_option("fwb_whatsapp_number", "https://wa.me/1234567890");
+    echo '<input type="text" name="fwb_whatsapp_number" value="' . esc_attr($value) . '" class="regular-text">';
+}
 ?>
