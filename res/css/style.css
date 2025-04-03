@@ -1,6 +1,6 @@
 .fwb-wrapper {
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	display: flex;
 	right: 0;
 	bottom: 0;
@@ -11,8 +11,9 @@
 	width: 4rem;
 	height: 4rem;
 	background-color: #25D366;
-	border-radius: 12%;
+	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 1rem;
 }
