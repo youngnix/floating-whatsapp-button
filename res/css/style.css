@@ -4,11 +4,11 @@
 	display: flex;
 	right: 0;
 	bottom: 0;
+	justify-content: flex-end;
 }
 
 .fwb-button {
 	width: 4rem;
 	height: 4rem;
-
-	background: #25D366;
+	background-color: #25D366;
 }
