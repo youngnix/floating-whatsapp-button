@@ -33,7 +33,7 @@ add_action("wp_head", function() {
 
 	add_action("wp_footer", function() {
 	$whatsapp_link = "https://wa.me/" . get_option("fwb_whatsapp_number") . "?text=" . rawurlencode(get_option("fwb_whatsapp_message"));
-	$new_page = "_blank" ? get_option("fwb_open_blank") : "_self";
+	$new_page = get_option("fwb_open_blank") ? "_blank" : "_self";
 	?>
 	<div id="fwb" class="fwb-wrapper">
 	<a class="fwb-button" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
@@ -80,7 +80,11 @@ add_action("wp_head", function() {
 function fwb_register_settings() {
   register_setting("floating-whatsapp-button", "fwb_whatsapp_number");
   register_setting("floating-whatsapp-button", "fwb_whatsapp_message");
-  register_setting("floating-whatsapp-button", "fwb_open_blank");
+	register_setting("floating-whatsapp-button", "fwb_open_blank", [
+    "sanitize_callback" => function($value) {
+      return $value ? 1 : 0;
+    }
+	]);
 
   add_settings_section(
     "fwb_settings_section",
@@ -127,6 +131,6 @@ function fwb_whatsapp_message_field() {
 
 function fwb_open_blank_field() {
   $value = get_option("fwb_open_blank");
-  echo '<input type="checkbox" name="fwb_open_blank" value="' . esc_attr($value) . '">';
+  echo '<input type="checkbox" name="fwb_open_blank" value="1" ' . checked(1, $value, false) . '>';
 }
 ?>
