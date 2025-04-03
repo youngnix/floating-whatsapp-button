@@ -36,7 +36,7 @@ add_action("wp_head", function() {
 	$new_page = get_option("fwb_open_blank") ? "_blank" : "_self";
 	?>
 	<div id="fwb" class="fwb-wrapper">
-	<a class="fwb-button" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
+		<a class="fwb-button" target="<?php echo $new_page; ?>" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<?php
 	});
@@ -68,11 +68,11 @@ add_action("wp_head", function() {
     <h1>Floating WhatsApp Button Settings</h1>
     <form method="post" action="options.php">
       <?php
-	settings_fields("floating-whatsapp-button");
-  do_settings_sections("floating-whatsapp-button");
-  submit_button();
-  ?>
-  </form>
+				settings_fields("floating-whatsapp-button");
+  			do_settings_sections("floating-whatsapp-button");
+  			submit_button();
+  		?>
+  	</form>
   </div>
   <?php
 }
