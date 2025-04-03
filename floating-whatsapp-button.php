@@ -41,8 +41,12 @@ add_action("wp_footer", function() {
 });
 
 function floating_whatsapp_button_enqueue_styles() {
-    wp_enqueue_style("floating_whatsapp_button", plugins_url("res/style.css", __FILE__));
+    wp_enqueue_style(
+        "floating-whatsapp-button-style",
+        plugins_url("res/style.css", __FILE__),
+        [],
+        "1.0.0"
+    );
 }
-add_action('wp_enqueue_scripts', 'floating_whatsapp_button_enqueue_styles');
-
+add_action("wp_enqueue_scripts", "floating_whatsapp_button_enqueue_styles");
 ?>
