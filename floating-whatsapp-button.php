@@ -36,7 +36,7 @@ add_action("wp_head", function() {
 	$new_page = get_option("fwb_open_blank") ? "_blank" : "_self";
 	?>
 	<div class="fwb-wrapper">
-		<a div="fwb-button" class="fwb-button" target="<?php echo $new_page; ?>" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
+		<a id="fwb" class="fwb-button" target="<?php echo $new_page; ?>" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<?php
 	});
