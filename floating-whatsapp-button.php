@@ -43,7 +43,7 @@ add_action("wp_footer", function() {
 function floating_whatsapp_button_enqueue_styles() {
     wp_enqueue_style(
         "floating-whatsapp-button-style",
-        plugins_url("res/style.css", __FILE__),
+        plugins_url("res/css/style.css", __FILE__),
         [],
         "1.0.0"
     );
