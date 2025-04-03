@@ -56,7 +56,7 @@ function fwb_add_options_page() {
     "WhatsApp Button",                   // Menu title
     "manage_options",                     // Capability
     "floating-whatsapp-button",           // Menu slug
-    "fwb_settings_page"                    // Function to display settings page
+    "fwb_options_page"                    // Function to display settings page
 	);
 }
 add_action("admin_menu", "fwb_add_options_page");
