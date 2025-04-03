@@ -35,7 +35,7 @@ add_action("wp_head", function() {
 add_action("wp_footer", function() {
 	?>
 	<div class="fwb-wrapper">
-		<a class="fwb-button"><i class="fa-fw fa-whatsapp"></i></a>
+		<a class="fwb-button"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<?php
 });
