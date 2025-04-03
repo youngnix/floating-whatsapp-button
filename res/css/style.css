@@ -1,0 +1,14 @@
+.fwb-wrapper {
+	width: 100%;
+	position: absolute;
+	display: flex;
+	right: 0;
+	bottom: 0;
+}
+
+.fwb-button {
+	width: 4rem;
+	height: 4rem;
+
+	background: #25D366;
+}
