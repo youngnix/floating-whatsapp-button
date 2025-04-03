@@ -5,6 +5,11 @@
  */
 /*
 Plugin Name: Floating WhatsApp Button
+Plugin URI: 
+Description: Floating WhatsApp Button.
+Author: 3MEIA9
+Version: 1.0.0
+Author URI: 
 */
 
 add_action("wp_head", function() {
