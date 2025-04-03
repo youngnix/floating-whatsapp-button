@@ -30,16 +30,19 @@ add_action("wp_head", function() {
 	?>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<?php
-})
+});
 
-add_action('wp_close_body', function() {
+add_action("wp_footer", function() {
 	?>
 	<div class="fwb-wrapper">
 		<a class="fwb-button"><i class="fa-fw fa-whatsapp"></i></a>
 	</div>
 	<?php
-})
+});
 
-wp_register_style("floating_whatsapp_button", "wp-content/plugins/floating-whatsapp-button/res/style.css");
+function floating_whatsapp_enqueue_styles() {
+    wp_enqueue_style("floating_whatsapp_button", plugins_url("res/style.css", __FILE__));
+}
+add_action('wp_enqueue_scripts', 'floating_whatsapp_button_enqueue_styles');
 
 ?>
