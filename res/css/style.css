@@ -8,6 +8,10 @@
 }
 
 .fwb-button {
+	text-decoration: none;
+	color: white;
+	padding: 2rem;
+	font-size: 2rem;
 	width: 4rem;
 	height: 4rem;
 	background-color: #25D366;
@@ -15,5 +19,5 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 1rem;
+	margin: 2rem;
 }
