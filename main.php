@@ -26,6 +26,6 @@ add_action('wp_close_body', function() {
 	<?php
 })
 
-wp_register_style("floating_whatsapp_button", "wp-content/plugins/floating_whatsapp_button/res/style.css");
+wp_register_style("floating_whatsapp_button", "wp-content/plugins/floating-whatsapp-button/res/style.css");
 
 ?>
