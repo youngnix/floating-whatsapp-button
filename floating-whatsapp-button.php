@@ -126,7 +126,7 @@ function fwb_whatsapp_message_field() {
 }
 
 function fwb_open_blank_field() {
-  $value = get_option("fwb_whatsapp_message");
-  echo '<input type="checkbox" name="fwb_whatsapp_message" value="' . esc_attr($value) . '">';
+  $value = get_option("fwb_open_blank");
+  echo '<input type="checkbox" name="fwb_open_blank" value="' . esc_attr($value) . '">';
 }
 ?>
