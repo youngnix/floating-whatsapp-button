@@ -35,8 +35,8 @@ add_action("wp_head", function() {
 	$whatsapp_link = "https://wa.me/" . get_option("fwb_whatsapp_number") . "?text=" . rawurlencode(get_option("fwb_whatsapp_message"));
 	$new_page = get_option("fwb_open_blank") ? "_blank" : "_self";
 	?>
-	<div id="fwb" class="fwb-wrapper">
-		<a class="fwb-button" target="<?php echo $new_page; ?>" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
+	<div class="fwb-wrapper">
+		<a div="fwb-button" class="fwb-button" target="<?php echo $new_page; ?>" href="<?php echo esc_url($whatsapp_link); ?>"><i class="fa fa-whatsapp"></i></a>
 	</div>
 	<?php
 	});
